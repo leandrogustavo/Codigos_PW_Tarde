@@ -1,7 +1,32 @@
 import { createMovie , findMovieByName , selectMovies } from "../model/movie";
+import {useState , userEFFect} from 'react';
 
+export default function movie({movieNeme }:any)[
+    const{data , setData}:any = useState(undefined)
+]
+async function fetchData(){
+    try{
+      cost response = awalt fetch('/api/action/movie/find?name=' +findMovieByName,{
+        method:'get'
+      })
 
-export async function createMovieC(_name:string , _releaseDate: string , _description:string,  _imageURL="" , _videoURL="") {
+      const responseJson= awalt response.json();
+
+      setData(responseJson.data);
+    ]
+    catch (err){
+        console.log(err);
+        alert('algo deu errado');
+
+    }
+
+    userEFFect(()=>{
+        
+        festchData();
+    
+    },[])
+    
+}
     try {
         const movieByName = await findMovieByName(_name);
 
@@ -28,3 +53,17 @@ export async function selectMoviesC() {
         return { status: 500, message: 'Something went wrong' };
     }
 }
+
+import {NextaApiRequest, nextapiRespomsanse} from "next";
+
+export default async (req:NextAíRequest, res:NextApiResponsa)=>{
+    if(req.method!='GET){
+        return res.status(403).json({massage:'method not aççowed'};
+        )
+}
+
+const{neme}=req.query;
+
+//enviar para o controller
+const response= await findMovieByNemeC(name);
+

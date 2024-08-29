@@ -31,7 +31,7 @@ async function fetchData(){
         const movieByName = await findMovieByName(_name);
 
         if ( movieByName != undefined ) {
-            return { status: 404, message: 'Name already registered' };
+            return { status: 400, message: 'Name already registered' };
         }
 
         const response = await createMovie(_name , _releaseDate , _imageURL , _videoURL , _description);
@@ -42,6 +42,27 @@ async function fetchData(){
         return { status: 500, message: 'Something went wrong' };        
     }
 }
+
+
+
+export async function findMovieByNameC(name: string) {
+    try {
+        const movieByName = await findMovieByName(name);
+
+        if ( movieByName == undefined) {
+            return { status: 404, message: 'Movie not found' };
+        }
+        else {
+            return { status: 200, message: 'Movie found', data: movieByName };
+        }
+
+    }
+    catch (err) {
+        return { status: 500, message: 'Something went wrong' };
+    }
+}
+
+
 
 export async function selectMoviesC() {
     try {

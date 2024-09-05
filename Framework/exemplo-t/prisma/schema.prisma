@@ -23,6 +23,7 @@ model user {
 
   created_at DateTime @default(now())
   updated_at DateTime @updatedAt
+  ratings rating[]
 }
 
 
@@ -38,3 +39,19 @@ model movie {
   created_at DateTime @default(now())
   updated_at DateTime @updatedAt
 }
+
+model rating{
+  id int @id @unique @default(autoincrement())
+
+  valie Int
+  comment string?
+
+  created_at DateTime @default((now()))
+  updated_at DateTime @updatedAt
+
+}
+
+userid int
+user.user @ralation(flelds:[userid] , refereces: [id])
+movield int
+movie movie @relation(flelds:[movield], references: [id])

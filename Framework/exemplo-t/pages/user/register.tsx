@@ -112,3 +112,10 @@ export function getServerSideProps( { req , res }:any ) {
         }
     }
 }
+
+export async functionupdateratIngModl(_id:number , _value:number , _value:number , _comment:strimg){
+    const 
+}
+    
+}
+   

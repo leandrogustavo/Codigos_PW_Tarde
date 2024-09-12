@@ -1,47 +1,59 @@
 import { checkToken } from "@/services/tokenConfig";
-import { deleteCookie, getCookie } from "cookies-next";
+import { getCookie } from "cookies-next";
 import styles from "@/styles/home.module.css"
-import { useState, useEffect } from "react";
-import Link from "next/link";
-import { useRouter } from "next/router";
+import{useState, usEffect} from "react";
 
 export default function Home() {
-  const router = useRouter();
-  const [data, setData]: any = useState(undefined);
+const[data , setData]= useState(underfined);
 
-  async function fetchData() {
-    try {
-      const response = await fetch(`/api/action/movie/select`, {
-        method: 'GET'
-      });
-
-      const responseJson = await response.json();
-
-      setData(responseJson.data);
-    }
-    catch (err) {
-      console.log(err);
-    }
+async function fetchData() {
+  try{
+    const response =await fetch('/api/action/movie/selet',
+       ; "get"
+    
+    )
   }
+cosnts responseJson = await Response.json();
 
-  useEffect(() => {
-    fetchData();
-  }, [])
+setData(responsajson.data);
+}
+catch(err){
+  console.log(err);
+}
+}
 
-  function logOut() {
-    deleteCookie('authorization');
-    router.push(`/user/login`);
-  }
+useEffect()=>{
 
-  function movieClick(movieName: string) {
-    router.push(`/movie/` + movieName);
-  }
+  fetchuData();
+  },[])
 
+function exibirfilmes(){
+  console.log(data);
+ 
+}
+ useEffect(()=>{
+  fetchData();
+ },[])
 
-  return (
+ function logOut(){
+  deleteCookie('authorization');
+  Router.push('/user/login'); }
+
+function moviClick(movieName: string){
+  Router.push('/movi')
+}
+
+  return(
+  <main id=(styles.main) className="flex min-h-screen flex-col">
+    <button onClick={exibirFilmes}> Printar os filmes </button>
+)
+
+ Link herf={'/movie/create'}
+
+ return (
     <main id={styles.main} className="flex min-h-screen flex-col">
-
       {/* Barra superior de navegação */}
+      <div onClick={()=>{movieClick(mocie.name)}className={styles.card}>
       <nav className={styles.navBar}>
         <img src="/pipoca.png" className={styles.icon} alt="" />
 
@@ -50,10 +62,7 @@ export default function Home() {
           <button className={styles.send}>Enviar</button>
         </div>
 
-
-        <Link href={`/movie/create`} className={styles.createMovie}>Criar Filme</Link>
-        <button className={styles.logoutBtn} onClick={logOut}>Logout</button>
-
+        <button className={styles.logoutBtn}>Logout</button>
 
       </nav>
 
@@ -67,28 +76,23 @@ export default function Home() {
 
         {/* Painel direito */}
         <div className={styles.rightContainer}>
+            
+            (data!= undeFined && data instanceof array? 
 
-          {data != undefined && data instanceof Array ?
-
-            data.map(movie => (
-              <div onClick={() => { movieClick(movie.name) }} className={styles.card}>
-                <img src={movie.imageURL} className={styles.cardImg} alt="" />
+            <div className={styles.card}>
+                <img src="/card.jfif" className={styles.cardImg} alt="" />
                 <div className={styles.cardInfos}>
-                  <h2>{movie.name}</h2>
-                  <p>{movie.releaseDate}</p>
+                  <h2>(movie.name)</h2>
+                  <p>(movie.releaseDate)</p>
                   <p>Generos do Filme</p>
-                  <p>{movie.description}</p>
+                  <p>(movie.description))</p>
                 </div>
-              </div>
+
+            </div>
             ))
-
             :
-
-            <p>No movies Found</p>
-
-          }
-
-
+            <p>movies found</p>
+            }
         </div>
 
       </div>
@@ -96,8 +100,6 @@ export default function Home() {
     </main>
   );
 }
-
-
 
 export function getServerSideProps({ req, res }: any) {
   try {
@@ -123,5 +125,6 @@ export function getServerSideProps({ req, res }: any) {
       },
       props: {}
     }
-  }
-}
+  }.
+
+  forctin formSubmit(event:any){}

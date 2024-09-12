@@ -45,3 +45,18 @@ export function getServerSideProps(context:any){
         props:{ movieNeme}
     }
 }
+
+
+export async function findRatingbyUser(_uerid:number ,_movieid:number){
+    
+}
+    
+}
+ <div className={styles.ratings}>
+    <div className={styles.ratingCard}>
+        <div className={styles.rinfos}>
+            <label className={styles.rUser}>User 1</label>
+            <label className={styles.rValue}>4/5 recomendação</label><br />
+        </div>
+ </div className={styles.User}></div>Uesr 1</label>
+ 

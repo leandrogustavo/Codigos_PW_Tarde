@@ -79,7 +79,7 @@ export default function createMovie() {
 
             const responseJson = await response.json();
 
-            alert(`${responseJson}`);
+            alert(`${responseJson.message}`);
 
         }
         catch(err:any) {

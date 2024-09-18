@@ -41,10 +41,10 @@ model movie {
 }
 
 model rating{
-  id int @id @unique @default(autoincrement())
+  id Int @id @unique @default(autoincrement())
 
   valie Int
-  comment string?
+  comment String?
 
   created_at DateTime @default((now()))
   updated_at DateTime @updatedAt
@@ -53,5 +53,9 @@ model rating{
 
 userid int
 user.user @ralation(flelds:[userid] , refereces: [id])
-movield int
+movield Int
 movie movie @relation(flelds:[movield], references: [id])
+
+model movie {
+  id Int @id @uniqui
+}
